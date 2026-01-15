@@ -30,36 +30,22 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--lilac);
+      background: var(--lilac); /* LILAC BACKGROUND */
       color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* Horizontal scroll track */
-    .horizontal-scroll {
-      display: flex;
-      flex-direction: row;
-      height: 100vh;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-behavior: smooth;
-      padding: 28px;
-      gap: 28px;
-    }
-
-    /* Each page = one slide */
-    .section {
-      min-width: calc(100vw - 56px);
-      height: calc(100vh - 56px);
-      display: flex;
-      align-items: stretch;
+    /* PAGE WRAPPER */
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 18px 90px;
     }
 
     /* Card look */
     .card {
       width: 100%;
-      height: 100%;
       background: var(--card-bg);
       border-radius: 26px;
       border: 1px solid var(--card-border);
@@ -68,7 +54,7 @@
         0 0 0 1px rgba(255,255,255,0.25) inset,
         0 0 32px var(--glow);
       padding: 34px;
-      overflow-y: auto;
+      margin-bottom: 26px;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -120,12 +106,10 @@
       margin: 14px 0 18px 0;
     }
 
-    /* FLASH CARD 1 LAYOUT */
+    /* INTRO CARD */
     .intro-wrap{
-      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       text-align: center;
       padding: 10px;
@@ -195,10 +179,10 @@
       color: rgba(18, 11, 26, 0.88);
     }
 
-    /* Arrows */
+    /* ARROWS (VERTICAL) */
     .scroll-arrow {
       position: fixed;
-      bottom: 22px;
+      right: 22px;
       width: 70px;
       height: 70px;
       border-radius: 999px;
@@ -221,35 +205,28 @@
       transform: translateY(-1px);
     }
 
-    .scroll-left { left: 22px; }
-    .scroll-right { right: 22px; }
+    .scroll-up { bottom: 104px; }
+    .scroll-down { bottom: 22px; }
 
-    /* Mobile adjustments */
+    /* Responsive */
     @media (max-width: 700px){
-      .horizontal-scroll{
-        padding: 18px;
-        gap: 18px;
-      }
-      .section{
-        min-width: calc(100vw - 36px);
-        height: calc(100vh - 36px);
+      .page{
+        padding: 22px 14px 90px;
       }
       .card{
         padding: 22px;
       }
-
       .big-profile, .big-profile-fallback{
         width: 180px;
         height: 180px;
       }
-
       .intro-name{
         font-size: 2rem;
       }
-
       .scroll-arrow{
         width: 60px;
         height: 60px;
+        right: 14px;
       }
       .scroll-arrow span{
         font-size: 26px;
@@ -260,223 +237,202 @@
 
 <body>
 
-<div class="horizontal-scroll" id="track">
+<div class="page" id="page">
 
   <!-- CARD 1: INTRO -->
-  <div class="section">
-    <div class="card">
-      <div class="intro-wrap">
+  <div class="card">
+    <div class="intro-wrap">
 
-        <img src="profile.jpg" alt="Ridhisha Tyagi" class="big-profile"
-             onerror="this.style.display='none'; document.getElementById('bigFallback').style.display='flex';">
+      <img src="profile.jpg" alt="Ridhisha Tyagi" class="big-profile"
+           onerror="this.style.display='none'; document.getElementById('bigFallback').style.display='flex';">
 
-        <div id="bigFallback" class="big-profile-fallback">RT</div>
+      <div id="bigFallback" class="big-profile-fallback">RT</div>
 
-        <h1 class="intro-name">Ridhisha Tyagi</h1>
-        <p class="intro-sub">India</p>
+      <h1 class="intro-name">Ridhisha Tyagi</h1>
+      <p class="intro-sub">India</p>
 
-        <div class="intro-links">
-          <a href="mailto:your@email.com">Mail</a>
-          <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a>
-          <a href="https://github.com/ridhisha-tyagi">GitHub</a>
-          <a href="https://substack.com">Substack</a>
-        </div>
-
-        <p class="intro-summary">
-          Product / Data Analyst focused on building explainable product analytics systems that
-          translate data into decisions .
-        </p>
-
+      <div class="intro-links">
+        <a href="mailto:your@email.com">Mail</a>
+        <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a>
+        <a href="https://github.com/ridhisha-tyagi">GitHub</a>
+        <a href="https://substack.com">Substack</a>
       </div>
+
+      <p class="intro-summary">
+        Product / Data Analyst focused on building explainable product analytics systems that
+        translate data into decisions .
+      </p>
+
     </div>
   </div>
 
   <!-- CARD 2: TECHNICAL SKILLS -->
-  <div class="section">
-    <div class="card">
-      <h2>TECHNICAL SKILLS</h2>
-      <div class="divider"></div>
+  <div class="card">
+    <h2>TECHNICAL SKILLS</h2>
+    <div class="divider"></div>
 
-      <h3>Analytics & Data</h3>
-      <ul>
-        <li>Product Analytics</li>
-        <li>Churn & Retention Analysis</li>
-        <li>Pricing & Experimentation Analysis</li>
-        <li>Behavioral Segmentation</li>
-        <li>Feature-Level Diagnostics</li>
-        <li>Decision Support Analytics</li>
-      </ul>
+    <h3>Analytics & Data</h3>
+    <ul>
+      <li>Product Analytics</li>
+      <li>Churn & Retention Analysis</li>
+      <li>Pricing & Experimentation Analysis</li>
+      <li>Behavioral Segmentation</li>
+      <li>Feature-Level Diagnostics</li>
+      <li>Decision Support Analytics</li>
+    </ul>
 
-      <h3>Data Modeling & Statistics</h3>
-      <ul>
-        <li>Logistic Regression</li>
-        <li>Classification Modeling</li>
-        <li>Probability Calibration & Precision–Recall Trade-offs</li>
-        <li>Feature Selection</li>
-        <li>Risk Bucketing & Scoring</li>
-      </ul>
+    <h3>Data Modeling & Statistics</h3>
+    <ul>
+      <li>Logistic Regression</li>
+      <li>Classification Modeling</li>
+      <li>Probability Calibration & Precision–Recall Trade-offs</li>
+      <li>Feature Selection</li>
+      <li>Risk Bucketing & Scoring</li>
+    </ul>
 
-      <h3>Data Engineering & Analytics Engineering</h3>
-      <ul>
-        <li>Data Preparation Pipelines</li>
-        <li>Data Validation & Quality Checks</li>
-        <li>Join Diagnostics (row loss, row explosion)</li>
-        <li>Reproducible Analytics Workflows</li>
-        <li>Analytics-Ready Table Design</li>
-      </ul>
+    <h3>Data Engineering & Analytics Engineering</h3>
+    <ul>
+      <li>Data Preparation Pipelines</li>
+      <li>Data Validation & Quality Checks</li>
+      <li>Join Diagnostics (row loss, row explosion)</li>
+      <li>Reproducible Analytics Workflows</li>
+      <li>Analytics-Ready Table Design</li>
+    </ul>
 
-      <h3>Programming & Tools</h3>
-      <ul>
-        <li>Python</li>
-        <li>Pandas, NumPy</li>
-        <li>SQL (analytical queries, joins, aggregations)</li>
-        <li>Scikit-learn</li>
-        <li>Streamlit</li>
-        <li>Git, GitHub</li>
-        <li>PyPI Packaging</li>
-      </ul>
+    <h3>Programming & Tools</h3>
+    <ul>
+      <li>Python</li>
+      <li>Pandas, NumPy</li>
+      <li>SQL (analytical queries, joins, aggregations)</li>
+      <li>Scikit-learn</li>
+      <li>Streamlit</li>
+      <li>Git, GitHub</li>
+      <li>PyPI Packaging</li>
+    </ul>
 
-      <h3>Visualization & Reporting</h3>
-      <ul>
-        <li>Interactive Dashboards</li>
-        <li>Analytical Storytelling</li>
-        <li>Exploratory Data Analysis (EDA)</li>
-      </ul>
-    </div>
+    <h3>Visualization & Reporting</h3>
+    <ul>
+      <li>Interactive Dashboards</li>
+      <li>Analytical Storytelling</li>
+      <li>Exploratory Data Analysis (EDA)</li>
+    </ul>
   </div>
 
   <!-- CARD 3: EXPERIENCE -->
-  <div class="section">
-    <div class="card">
-      <h2>EXPERIENCE</h2>
-      <div class="divider"></div>
+  <div class="card">
+    <h2>EXPERIENCE</h2>
+    <div class="divider"></div>
 
-      <h3>UL India Private Limited — Gurgaon, India</h3>
-      <p class="meta">Field Operations Coordinator – Analytics & Insights<br>Sep 2024 – Mar 2025</p>
-      <ul>
-        <li>Designed and maintained structured data collection and validation workflows, improving consistency and reliability across multi-source operational datasets</li>
-        <li>Monitored and audited end-to-end operational data pipelines, identifying data quality gaps that impacted downstream reporting and analysis</li>
-        <li>Partnered with field and operations teams to standardize reporting logic, reducing manual reconciliation and interpretation mismatches</li>
-        <li>Diagnosed breakdowns in real-world data capture processes and proposed workflow improvements to strengthen analytical usability</li>
-        <li>Built hands-on experience working with messy, incomplete, and operationally constrained datasets, bridging ground reality with analytics needs</li>
-      </ul>
+    <h3>UL India Private Limited — Gurgaon, India</h3>
+    <p class="meta">Field Operations Coordinator – Analytics & Insights<br>Sep 2024 – Mar 2025</p>
+    <ul>
+      <li>Designed and maintained structured data collection and validation workflows, improving consistency and reliability across multi-source operational datasets</li>
+      <li>Monitored and audited end-to-end operational data pipelines, identifying data quality gaps that impacted downstream reporting and analysis</li>
+      <li>Partnered with field and operations teams to standardize reporting logic, reducing manual reconciliation and interpretation mismatches</li>
+      <li>Diagnosed breakdowns in real-world data capture processes and proposed workflow improvements to strengthen analytical usability</li>
+      <li>Built hands-on experience working with messy, incomplete, and operationally constrained datasets, bridging ground reality with analytics needs</li>
+    </ul>
 
-      <h3>DD Industries (Family-Owned Manufacturing Business)</h3>
-      <p class="meta">Operations & Analytics Support — Contract<br>Yamunanagar, Haryana — November 2025</p>
-      <ul>
-        <li>Provided short-term operational and analytical support for a heavy machinery manufacturing unit (~35 employees, ₹3–4 Cr annual turnover) during a business wind-down phase</li>
-        <li>Coordinated production tracking, logistics, and order status across labour teams, vendors, and clients</li>
-        <li>Analyzed basic sales, cost, and production data to support day-to-day operational decisions</li>
-        <li>Maintained simple reporting and documentation to improve visibility into inventory, expenses, and output</li>
-        <li>Acted as a liaison between on-ground operations and clients for delivery timelines and clarifications</li>
-      </ul>
-    </div>
+    <h3>DD Industries (Family-Owned Manufacturing Business)</h3>
+    <p class="meta">Operations & Analytics Support — Contract<br>Yamunanagar, Haryana — November 2025</p>
+    <ul>
+      <li>Provided short-term operational and analytical support for a heavy machinery manufacturing unit (~35 employees, ₹3–4 Cr annual turnover) during a business wind-down phase</li>
+      <li>Coordinated production tracking, logistics, and order status across labour teams, vendors, and clients</li>
+      <li>Analyzed basic sales, cost, and production data to support day-to-day operational decisions</li>
+      <li>Maintained simple reporting and documentation to improve visibility into inventory, expenses, and output</li>
+      <li>Acted as a liaison between on-ground operations and clients for delivery timelines and clarifications</li>
+    </ul>
   </div>
 
   <!-- CARD 4: PROJECTS -->
-  <div class="section">
-    <div class="card">
-      <h2>PROJECTS</h2>
-      <div class="divider"></div>
+  <div class="card">
+    <h2>PROJECTS</h2>
+    <div class="divider"></div>
 
-      <h3>Prepstack — Data Preparation & Analytics Framework</h3>
-      <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
-      <ul>
-        <li>Designed and built an end-to-end data preparation framework for structured analytics and ML workflows</li>
-        <li>Implemented modular layers for:</li>
-        <li>Data exploration (EDA, profiling, correlations, distributions)</li>
-        <li>Data cleaning (missing values, duplicates, outliers, type enforcement)</li>
-        <li>Feature transformation (column/row transforms, joins, diagnostics)</li>
-        <li>Visual validation (distribution checks, previews, correlations, time series)</li>
-        <li>Model preparation (splits, class balancing, feature selection, evaluation)</li>
-        <li>Built reproducible, inspectable preprocessing pipelines to prevent silent data bugs and leakage</li>
-        <li>Implemented join diagnostics to detect row loss, row explosion, and key mismatches</li>
-        <li>Reduced risk of silent data bugs by enforcing validation and join diagnostics</li>
-        <li>Improved reproducibility and inspectability of analytics workflows</li>
-        <li>Enabled consistent preprocessing across multiple datasets and use cases</li>
-        <li>Designed robust missing-data strategies for numeric, categorical, and mixed datasets</li>
-        <li>Packaged and published as a reusable Python library on PyPI, with versioned code and documentation</li>
-      </ul>
-      <p class="meta">Link: Pypi | GitHub</p>
+    <h3>Prepstack — Data Preparation & Analytics Framework</h3>
+    <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
+    <ul>
+      <li>Designed and built an end-to-end data preparation framework for structured analytics and ML workflows</li>
+      <li>Implemented modular layers for:</li>
+      <li>Data exploration (EDA, profiling, correlations, distributions)</li>
+      <li>Data cleaning (missing values, duplicates, outliers, type enforcement)</li>
+      <li>Feature transformation (column/row transforms, joins, diagnostics)</li>
+      <li>Visual validation (distribution checks, previews, correlations, time series)</li>
+      <li>Model preparation (splits, class balancing, feature selection, evaluation)</li>
+      <li>Built reproducible, inspectable preprocessing pipelines to prevent silent data bugs and leakage</li>
+      <li>Implemented join diagnostics to detect row loss, row explosion, and key mismatches</li>
+      <li>Reduced risk of silent data bugs by enforcing validation and join diagnostics</li>
+      <li>Improved reproducibility and inspectability of analytics workflows</li>
+      <li>Enabled consistent preprocessing across multiple datasets and use cases</li>
+      <li>Designed robust missing-data strategies for numeric, categorical, and mixed datasets</li>
+      <li>Packaged and published as a reusable Python library on PyPI, with versioned code and documentation</li>
+    </ul>
+    <p class="meta">Link: Pypi | GitHub</p>
 
-      <h3>Pricing Experimentation & Churn Impact Model</h3>
-      <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
-      <p>
-        A strategy-driven pricing experimentation system that quantifies churn pressure
-        introduced by pricing decisions, enabling guardrail-aware growth without relying on
-        black-box churn prediction.
-      </p>
-      <p class="meta">
-        Link:
-        <a href="https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model" target="_blank">
-          https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model
-        </a>
-      </p>
+    <h3>Pricing Experimentation & Churn Impact Model</h3>
+    <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
+    <p>
+      A strategy-driven pricing experimentation system that quantifies churn pressure
+      introduced by pricing decisions, enabling guardrail-aware growth without relying on
+      black-box churn prediction.
+    </p>
+    <p class="meta">
+      Link:
+      <a href="https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model" target="_blank">
+        https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model
+      </a>
+    </p>
 
-      <h3>SaaS Churn Intelligence System</h3>
-      <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
-      <ul>
-        <li>Analyzed churn behavior across 6+ customer dimensions (product usage, feature health, support interactions, satisfaction, errors, pricing signals) to identify churn drivers beyond surface-level metrics</li>
-        <li>Built a churn analytics pipeline covering ~5,000+ SaaS customer records with feature-level aggregation and behavioral segmentation</li>
-        <li>Designed a feature risk scoring framework to classify product features into retention anchors vs churn accelerators</li>
-        <li>Developed a precision-oriented churn risk model achieving ~79% accuracy and 0.67 ROC-AUC, optimized for actionable retention decisions</li>
-        <li>Tuned model threshold to reduce false positives by ~75%, prioritizing outreach efficiency over raw recall</li>
-        <li>Segmented customers into Low / Medium / High risk buckets, enabling targeted retention strategies instead of blanket interventions</li>
-        <li>Built an interactive Streamlit dashboard with 10+ drill-down views (system → segment → feature → customer behavior) to translate model outputs into product actions</li>
-        <li>Reduced analytical ambiguity by converting model coefficients into human-readable churn drivers, improving interpretability for non-technical stakeholders</li>
-      </ul>
-      <p class="meta">
-        Link:
-        <a href="https://github.com/ridhisha-tyagi/saas-churn-intelligence" target="_blank">
-          https://github.com/ridhisha-tyagi/saas-churn-intelligence
-        </a>
-      </p>
-    </div>
+    <h3>SaaS Churn Intelligence System</h3>
+    <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
+    <ul>
+      <li>Analyzed churn behavior across 6+ customer dimensions (product usage, feature health, support interactions, satisfaction, errors, pricing signals) to identify churn drivers beyond surface-level metrics</li>
+      <li>Built a churn analytics pipeline covering ~5,000+ SaaS customer records with feature-level aggregation and behavioral segmentation</li>
+      <li>Designed a feature risk scoring framework to classify product features into retention anchors vs churn accelerators</li>
+      <li>Developed a precision-oriented churn risk model achieving ~79% accuracy and 0.67 ROC-AUC, optimized for actionable retention decisions</li>
+      <li>Tuned model threshold to reduce false positives by ~75%, prioritizing outreach efficiency over raw recall</li>
+      <li>Segmented customers into Low / Medium / High risk buckets, enabling targeted retention strategies instead of blanket interventions</li>
+      <li>Built an interactive Streamlit dashboard with 10+ drill-down views (system → segment → feature → customer behavior) to translate model outputs into product actions</li>
+      <li>Reduced analytical ambiguity by converting model coefficients into human-readable churn drivers, improving interpretability for non-technical stakeholders</li>
+    </ul>
+    <p class="meta">
+      Link:
+      <a href="https://github.com/ridhisha-tyagi/saas-churn-intelligence" target="_blank">
+        https://github.com/ridhisha-tyagi/saas-churn-intelligence
+      </a>
+    </p>
   </div>
 
   <!-- CARD 5: EDUCATION + LANGUAGES -->
-  <div class="section">
-    <div class="card">
-      <h2>EDUCATION</h2>
-      <div class="divider"></div>
+  <div class="card">
+    <h2>EDUCATION</h2>
+    <div class="divider"></div>
 
-      <p>
-        <strong>Graphic Era University, Dehradun</strong><br>
-        Bachelor of Technology — Electronics & Communication Engineering<br>
-        2024
-      </p>
+    <p>
+      <strong>Graphic Era University, Dehradun</strong><br>
+      Bachelor of Technology — Electronics & Communication Engineering<br>
+      2024
+    </p>
 
-      <h2 style="margin-top:38px;">LANGUAGES</h2>
-      <div class="divider"></div>
+    <h2 style="margin-top:38px;">LANGUAGES</h2>
+    <div class="divider"></div>
 
-      <ul>
-        <li>English (Professional)</li>
-        <li>Hindi (Native)</li>
-      </ul>
-    </div>
+    <ul>
+      <li>English (Professional)</li>
+      <li>Hindi (Native)</li>
+    </ul>
   </div>
 
 </div>
 
-<!-- BIG translucent arrow buttons -->
-<button class="scroll-arrow scroll-left"
-  onclick="document.getElementById('track').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })">
-  <span>←</span>
+<!-- VERTICAL ARROWS -->
+<button class="scroll-arrow scroll-up" onclick="window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })">
+  <span>↑</span>
 </button>
 
-<button class="scroll-arrow scroll-right"
-  onclick="document.getElementById('track').scrollBy({ left: window.innerWidth, behavior: 'smooth' })">
-  <span>→</span>
+<button class="scroll-arrow scroll-down" onclick="window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })">
+  <span>↓</span>
 </button>
-
-<!-- Optional: mouse wheel scrolls horizontally too -->
-<script>
-  const track = document.getElementById("track");
-  track.addEventListener("wheel", (e) => {
-    e.preventDefault();
-    track.scrollBy({ left: e.deltaY, behavior: "smooth" });
-  }, { passive: false });
-</script>
 
 </body>
 </html>
