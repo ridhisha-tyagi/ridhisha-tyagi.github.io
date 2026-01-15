@@ -110,6 +110,7 @@
       color: var(--link);
       text-decoration: none;
       font-weight: 700;
+      word-break: break-word;
     }
     a:hover{ text-decoration: underline; }
 
@@ -198,11 +199,11 @@
     .scroll-arrow {
       position: fixed;
       bottom: 22px;
-      width: 64px;
-      height: 64px;
+      width: 70px;
+      height: 70px;
       border-radius: 999px;
       border: 1px solid rgba(0,0,0,0.10);
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.45); /* translucent */
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       cursor: pointer;
@@ -213,8 +214,8 @@
     }
 
     .scroll-arrow span{
-      font-size: 28px;
-      color: #1A0F24;
+      font-size: 30px;
+      color: #1A0F24; /* dark arrow */
       font-weight: 900;
       line-height: 1;
       transform: translateY(-1px);
@@ -245,6 +246,14 @@
       .intro-name{
         font-size: 2rem;
       }
+
+      .scroll-arrow{
+        width: 60px;
+        height: 60px;
+      }
+      .scroll-arrow span{
+        font-size: 26px;
+      }
     }
   </style>
 </head>
@@ -253,7 +262,7 @@
 
 <div class="horizontal-scroll" id="track">
 
-  <!-- CARD 1: INTRO (Picture big + name + heading + links) -->
+  <!-- CARD 1: INTRO -->
   <div class="section">
     <div class="card">
       <div class="intro-wrap">
@@ -450,13 +459,24 @@
 </div>
 
 <!-- BIG translucent arrow buttons -->
-<button class="scroll-arrow scroll-left" onclick="document.getElementById('track').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })">
+<button class="scroll-arrow scroll-left"
+  onclick="document.getElementById('track').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })">
   <span>←</span>
 </button>
 
-<button class="scroll-arrow scroll-right" onclick="document.getElementById('track').scrollBy({ left: window.innerWidth, behavior: 'smooth' })">
+<button class="scroll-arrow scroll-right"
+  onclick="document.getElementById('track').scrollBy({ left: window.innerWidth, behavior: 'smooth' })">
   <span>→</span>
 </button>
+
+<!-- Optional: mouse wheel scrolls horizontally too -->
+<script>
+  const track = document.getElementById("track");
+  track.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    track.scrollBy({ left: e.deltaY, behavior: "smooth" });
+  }, { passive: false });
+</script>
 
 </body>
 </html>
