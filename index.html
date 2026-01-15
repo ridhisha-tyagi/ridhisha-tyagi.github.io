@@ -344,64 +344,92 @@
     </ul>
   </div>
 
-  <!-- CARD 4: PROJECTS -->
-  <div class="card">
-    <h2>PROJECTS</h2>
-    <div class="divider"></div>
+<!-- CARD 4: PROJECTS -->
+<div class="card">
+  <h2>PROJECTS</h2>
+  <div class="divider"></div>
 
-    <h3>Prepstack — Data Preparation & Analytics Framework</h3>
-    <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
-    <ul>
-      <li>Designed and built an end-to-end data preparation framework for structured analytics and ML workflows</li>
-      <li>Implemented modular layers for:</li>
-      <li>Data exploration (EDA, profiling, correlations, distributions)</li>
-      <li>Data cleaning (missing values, duplicates, outliers, type enforcement)</li>
-      <li>Feature transformation (column/row transforms, joins, diagnostics)</li>
-      <li>Visual validation (distribution checks, previews, correlations, time series)</li>
-      <li>Model preparation (splits, class balancing, feature selection, evaluation)</li>
-      <li>Built reproducible, inspectable preprocessing pipelines to prevent silent data bugs and leakage</li>
-      <li>Implemented join diagnostics to detect row loss, row explosion, and key mismatches</li>
-      <li>Reduced risk of silent data bugs by enforcing validation and join diagnostics</li>
-      <li>Improved reproducibility and inspectability of analytics workflows</li>
-      <li>Enabled consistent preprocessing across multiple datasets and use cases</li>
-      <li>Designed robust missing-data strategies for numeric, categorical, and mixed datasets</li>
-      <li>Packaged and published as a reusable Python library on PyPI, with versioned code and documentation</li>
-    </ul>
-    <p class="meta">Link: Pypi | GitHub</p>
+  <h3>Prepstack — Data Preparation & Analytics Framework</h3>
+  <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
+  <ul>
+    <li>Designed and built an end-to-end data preparation framework for structured analytics and ML workflows</li>
+    <li>Implemented modular layers for:</li>
+    <li>Data exploration (EDA, profiling, correlations, distributions)</li>
+    <li>Data cleaning (missing values, duplicates, outliers, type enforcement)</li>
+    <li>Feature transformation (column/row transforms, joins, diagnostics)</li>
+    <li>Visual validation (distribution checks, previews, correlations, time series)</li>
+    <li>Model preparation (splits, class balancing, feature selection, evaluation)</li>
+    <li>Built reproducible, inspectable preprocessing pipelines to prevent silent data bugs and leakage</li>
+    <li>Implemented join diagnostics to detect row loss, row explosion, and key mismatches</li>
+    <li>Reduced risk of silent data bugs by enforcing validation and join diagnostics</li>
+    <li>Improved reproducibility and inspectability of analytics workflows</li>
+    <li>Enabled consistent preprocessing across multiple datasets and use cases</li>
+    <li>Designed robust missing-data strategies for numeric, categorical, and mixed datasets</li>
+    <li>Packaged and published as a reusable Python library on PyPI, with versioned code and documentation</li>
+  </ul>
 
-    <h3>Pricing Experimentation & Churn Impact Model</h3>
-    <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
-    <p>
-      A strategy-driven pricing experimentation system that quantifies churn pressure
-      introduced by pricing decisions, enabling guardrail-aware growth without relying on
-      black-box churn prediction.
-    </p>
-    <p class="meta">
-      Link:
-      <a href="https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model" target="_blank">
-        https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model
-      </a>
-    </p>
+  <p class="meta">
+    Links:
+    <a href="https://pypi.org/" target="_blank">PyPI</a>
+    &nbsp;|&nbsp;
+    <a href="https://github.com/ridhisha-tyagi" target="_blank">GitHub</a>
+  </p>
 
-    <h3>SaaS Churn Intelligence System</h3>
-    <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
-    <ul>
-      <li>Analyzed churn behavior across 6+ customer dimensions (product usage, feature health, support interactions, satisfaction, errors, pricing signals) to identify churn drivers beyond surface-level metrics</li>
-      <li>Built a churn analytics pipeline covering ~5,000+ SaaS customer records with feature-level aggregation and behavioral segmentation</li>
-      <li>Designed a feature risk scoring framework to classify product features into retention anchors vs churn accelerators</li>
-      <li>Developed a precision-oriented churn risk model achieving ~79% accuracy and 0.67 ROC-AUC, optimized for actionable retention decisions</li>
-      <li>Tuned model threshold to reduce false positives by ~75%, prioritizing outreach efficiency over raw recall</li>
-      <li>Segmented customers into Low / Medium / High risk buckets, enabling targeted retention strategies instead of blanket interventions</li>
-      <li>Built an interactive Streamlit dashboard with 10+ drill-down views (system → segment → feature → customer behavior) to translate model outputs into product actions</li>
-      <li>Reduced analytical ambiguity by converting model coefficients into human-readable churn drivers, improving interpretability for non-technical stakeholders</li>
-    </ul>
-    <p class="meta">
-      Link:
-      <a href="https://github.com/ridhisha-tyagi/saas-churn-intelligence" target="_blank">
-        https://github.com/ridhisha-tyagi/saas-churn-intelligence
-      </a>
-    </p>
-  </div>
+  <div class="divider"></div>
+
+  <h3>Pricing Experimentation & Churn Impact Model</h3>
+  <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
+  <p>
+    A strategy-driven pricing experimentation system that quantifies churn pressure
+    introduced by pricing decisions, enabling guardrail-aware growth without relying on
+    black-box churn prediction.
+  </p>
+  <ul>
+    <li>Designed a pricing impact model to quantify incremental churn pressure (%) introduced by pricing changes across plans, billing frequency, trial structure, and seat tiers</li>
+    <li>Modeled pricing effects across 15+ micro-segments (plan × seat size × billing frequency) to surface localized churn risk instead of global averages</li>
+    <li>Translated logistic regression coefficients into percentage churn deltas, enabling business users to assess pricing risk without reading model internals</li>
+    <li>Built a guardrail-based experimentation layer to simulate pricing changes and flag high-risk rollouts before live A/B testing</li>
+    <li>Simulated pricing decisions across multiple what-if scenarios, identifying segments safe for expansion vs segments requiring mitigation</li>
+    <li>Implemented decision outputs such as Run / Limit / Do Not Run to operationalize analytics into concrete pricing actions</li>
+    <li>Delivered an end-to-end pricing decision workflow combining impact modeling, experimentation design, and risk governance in a single system</li>
+  </ul>
+
+  <p class="meta">
+    GitHub:
+    <a href="https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model" target="_blank">
+      Pricing-Experimentation-and-churn-impact-model
+    </a>
+    <br>
+    Live Dashboard:
+    <a href="#" target="_blank">Add your dashboard link here</a>
+  </p>
+
+  <div class="divider"></div>
+
+  <h3>SaaS Churn Intelligence System</h3>
+  <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
+  <ul>
+    <li>Analyzed churn behavior across 6+ customer dimensions (product usage, feature health, support interactions, satisfaction, errors, pricing signals) to identify churn drivers beyond surface-level metrics</li>
+    <li>Built a churn analytics pipeline covering ~5,000+ SaaS customer records with feature-level aggregation and behavioral segmentation</li>
+    <li>Designed a feature risk scoring framework to classify product features into retention anchors vs churn accelerators</li>
+    <li>Developed a precision-oriented churn risk model achieving ~79% accuracy and 0.67 ROC-AUC, optimized for actionable retention decisions</li>
+    <li>Tuned model threshold to reduce false positives by ~75%, prioritizing outreach efficiency over raw recall</li>
+    <li>Segmented customers into Low / Medium / High risk buckets, enabling targeted retention strategies instead of blanket interventions</li>
+    <li>Built an interactive Streamlit dashboard with 10+ drill-down views (system → segment → feature → customer behavior) to translate model outputs into product actions</li>
+    <li>Reduced analytical ambiguity by converting model coefficients into human-readable churn drivers, improving interpretability for non-technical stakeholders</li>
+  </ul>
+
+  <p class="meta">
+    GitHub:
+    <a href="https://github.com/ridhisha-tyagi/saas-churn-intelligence" target="_blank">
+      saas-churn-intelligence
+    </a>
+    <br>
+    Live Dashboard:
+    <a href="#" target="_blank">Add your dashboard link here</a>
+  </p>
+</div>
+
 
   <!-- CARD 5: EDUCATION + LANGUAGES -->
   <div class="card">
