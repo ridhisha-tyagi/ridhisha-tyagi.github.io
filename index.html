@@ -5,10 +5,25 @@
   <title>Ridhisha Tyagi — Product / Data Analyst</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Prettier font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* RESET */
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    :root{
+      --lilac: #E9DDF7;
+      --deep-purple: #2B0B4E;
+      --deep-purple-2: #3B0A6E;
+      --text: #120B1A;
+
+      --card-bg: rgba(255,255,255,0.78);
+      --card-border: rgba(70, 0, 120, 0.25);
+      --glow: rgba(123, 54, 255, 0.25);
+
+      --link: #2B0B4E;
     }
 
     html, body {
@@ -16,12 +31,12 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-      background: #E6D9F2; /* lilac */
-      color: #111;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--lilac);
+      color: var(--text);
     }
 
-    /* HORIZONTAL SCROLL */
+    /* Horizontal scroll track */
     .horizontal-scroll {
       display: flex;
       flex-direction: row;
@@ -29,118 +44,206 @@
       overflow-x: auto;
       overflow-y: hidden;
       scroll-behavior: smooth;
-    }
-
-    .section {
-      min-width: 100vw;
-      height: 100vh;
-      padding: 56px 32px;
-      overflow-y: auto;
-    }
-
-    /* HEADER CARD */
-    .header-card {
-      background: #3B1E5D;
-      color: #fff;
-      padding: 32px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
+      padding: 28px;
       gap: 28px;
-      flex-wrap: wrap;
     }
 
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 6px solid #E6D9F2;
-      object-fit: cover;
-      background: #fff;
+    /* Each page = one slide */
+    .section {
+      min-width: calc(100vw - 56px);
+      height: calc(100vh - 56px);
+      display: flex;
+      align-items: stretch;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 2.6rem;
+    /* Card look */
+    .card {
+      width: 100%;
+      height: 100%;
+      background: var(--card-bg);
+      border-radius: 26px;
+      border: 1px solid var(--card-border);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.10),
+        0 0 0 1px rgba(255,255,255,0.25) inset,
+        0 0 32px var(--glow);
+      padding: 34px;
+      overflow-y: auto;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .header-text p {
-      margin: 6px 0;
-      opacity: 0.95;
-    }
-
-    /* LINKS */
-    .links a {
-      color: #E6D9F2;
-      text-decoration: none;
-      margin-right: 16px;
-      font-weight: 500;
-    }
-
-    /* HEADINGS */
-    h2 {
-      margin-top: 32px;
-      font-size: 1.4rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 6px;
+    /* Headings */
+    .card h2{
+      margin: 0 0 14px 0;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+      color: var(--deep-purple);
     }
 
     h3 {
-      margin-top: 24px;
+      margin-top: 22px;
+      margin-bottom: 8px;
       font-size: 1.05rem;
     }
 
-    p {
-      line-height: 1.7;
+    p{
+      margin: 10px 0 14px 0;
+      line-height: 1.75;
     }
 
-    ul {
+    ul{
       padding-left: 22px;
+      margin: 10px 0 18px 0;
     }
 
-    li {
-      margin-bottom: 6px;
+    li{
+      margin-bottom: 8px;
     }
 
-    .meta {
-      color: #444;
+    .meta{
+      color: rgba(18, 11, 26, 0.72);
       font-size: 0.95rem;
     }
 
-    /* ARROWS */
+    a{
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover{ text-decoration: underline; }
+
+    .divider{
+      height: 1px;
+      background: rgba(43, 11, 78, 0.15);
+      margin: 14px 0 18px 0;
+    }
+
+    /* FLASH CARD 1 LAYOUT */
+    .intro-wrap{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .big-profile {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2mm solid var(--deep-purple); /* 2mm border */
+      object-fit: cover;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.20);
+      margin-bottom: 18px;
+    }
+
+    .big-profile-fallback{
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2mm solid var(--deep-purple);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.95);
+      color: var(--deep-purple);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.20);
+      margin-bottom: 18px;
+      font-size: 2rem;
+    }
+
+    .intro-name{
+      font-size: 2.4rem;
+      margin: 0;
+      color: var(--deep-purple);
+      letter-spacing: -0.02em;
+    }
+
+    .intro-sub{
+      margin: 8px 0 0 0;
+      font-weight: 600;
+      color: rgba(18, 11, 26, 0.78);
+    }
+
+    .intro-links{
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .intro-links a{
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(43, 11, 78, 0.10);
+      border: 1px solid rgba(43, 11, 78, 0.15);
+      font-weight: 700;
+    }
+
+    .intro-summary{
+      max-width: 720px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: rgba(18, 11, 26, 0.88);
+    }
+
+    /* Arrows */
     .scroll-arrow {
       position: fixed;
-      bottom: 24px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: none;
-      background: #3B1E5D;
-      color: #fff;
-      font-size: 20px;
+      bottom: 22px;
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-      z-index: 1000;
+      z-index: 2000;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
 
-    .scroll-left {
-      left: 24px;
+    .scroll-arrow span{
+      font-size: 28px;
+      color: #1A0F24;
+      font-weight: 900;
+      line-height: 1;
+      transform: translateY(-1px);
     }
 
-    .scroll-right {
-      right: 24px;
-    }
+    .scroll-left { left: 22px; }
+    .scroll-right { right: 22px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .header-card {
-        flex-direction: column;
-        text-align: center;
+    /* Mobile adjustments */
+    @media (max-width: 700px){
+      .horizontal-scroll{
+        padding: 18px;
+        gap: 18px;
+      }
+      .section{
+        min-width: calc(100vw - 36px);
+        height: calc(100vh - 36px);
+      }
+      .card{
+        padding: 22px;
       }
 
-      .profile-pic {
-        width: 130px;
-        height: 130px;
+      .big-profile, .big-profile-fallback{
+        width: 180px;
+        height: 180px;
+      }
+
+      .intro-name{
+        font-size: 2rem;
       }
     }
   </style>
@@ -148,183 +251,211 @@
 
 <body>
 
-<div class="horizontal-scroll">
+<div class="horizontal-scroll" id="track">
 
-  <!-- SECTION 1 : HEADER -->
+  <!-- CARD 1: INTRO (Picture big + name + heading + links) -->
   <div class="section">
-    <div class="header-card">
-      <img src="profile.jpg" alt="Ridhisha Tyagi" class="profile-pic">
+    <div class="card">
+      <div class="intro-wrap">
 
-      <div class="header-text">
-        <h1>Ridhisha Tyagi</h1>
-        <p>India</p>
-        <p>Product / Data Analyst</p>
+        <img src="profile.jpg" alt="Ridhisha Tyagi" class="big-profile"
+             onerror="this.style.display='none'; document.getElementById('bigFallback').style.display='flex';">
 
-        <div class="links">
+        <div id="bigFallback" class="big-profile-fallback">RT</div>
+
+        <h1 class="intro-name">Ridhisha Tyagi</h1>
+        <p class="intro-sub">India</p>
+
+        <div class="intro-links">
           <a href="mailto:your@email.com">Mail</a>
           <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a>
           <a href="https://github.com/ridhisha-tyagi">GitHub</a>
           <a href="https://substack.com">Substack</a>
         </div>
+
+        <p class="intro-summary">
+          Product / Data Analyst focused on building explainable product analytics systems that
+          translate data into decisions .
+        </p>
+
       </div>
     </div>
-
-    <p style="margin-top:24px;">
-      Product / Data Analyst focused on building explainable product analytics systems
-      that translate data into decisions
-    </p>
   </div>
 
-  <!-- SECTION 2 : SKILLS -->
+  <!-- CARD 2: TECHNICAL SKILLS -->
   <div class="section">
-    <h2>TECHNICAL SKILLS</h2>
+    <div class="card">
+      <h2>TECHNICAL SKILLS</h2>
+      <div class="divider"></div>
 
-    <h3>Analytics & Data</h3>
-    <ul>
-      <li>Product Analytics</li>
-      <li>Churn & Retention Analysis</li>
-      <li>Pricing & Experimentation Analysis</li>
-      <li>Behavioral Segmentation</li>
-      <li>Feature-Level Diagnostics</li>
-      <li>Decision Support Analytics</li>
-    </ul>
+      <h3>Analytics & Data</h3>
+      <ul>
+        <li>Product Analytics</li>
+        <li>Churn & Retention Analysis</li>
+        <li>Pricing & Experimentation Analysis</li>
+        <li>Behavioral Segmentation</li>
+        <li>Feature-Level Diagnostics</li>
+        <li>Decision Support Analytics</li>
+      </ul>
 
-    <h3>Data Modeling & Statistics</h3>
-    <ul>
-      <li>Logistic Regression</li>
-      <li>Classification Modeling</li>
-      <li>Probability Calibration & Precision–Recall Trade-offs</li>
-      <li>Feature Selection</li>
-      <li>Risk Bucketing & Scoring</li>
-    </ul>
+      <h3>Data Modeling & Statistics</h3>
+      <ul>
+        <li>Logistic Regression</li>
+        <li>Classification Modeling</li>
+        <li>Probability Calibration & Precision–Recall Trade-offs</li>
+        <li>Feature Selection</li>
+        <li>Risk Bucketing & Scoring</li>
+      </ul>
 
-    <h3>Data Engineering & Analytics Engineering</h3>
-    <ul>
-      <li>Data Preparation Pipelines</li>
-      <li>Data Validation & Quality Checks</li>
-      <li>Join Diagnostics (row loss, row explosion)</li>
-      <li>Reproducible Analytics Workflows</li>
-      <li>Analytics-Ready Table Design</li>
-    </ul>
+      <h3>Data Engineering & Analytics Engineering</h3>
+      <ul>
+        <li>Data Preparation Pipelines</li>
+        <li>Data Validation & Quality Checks</li>
+        <li>Join Diagnostics (row loss, row explosion)</li>
+        <li>Reproducible Analytics Workflows</li>
+        <li>Analytics-Ready Table Design</li>
+      </ul>
 
-    <h3>Programming & Tools</h3>
-    <ul>
-      <li>Python</li>
-      <li>Pandas, NumPy</li>
-      <li>SQL (analytical queries, joins, aggregations)</li>
-      <li>Scikit-learn</li>
-      <li>Streamlit</li>
-      <li>Git, GitHub</li>
-      <li>PyPI Packaging</li>
-    </ul>
+      <h3>Programming & Tools</h3>
+      <ul>
+        <li>Python</li>
+        <li>Pandas, NumPy</li>
+        <li>SQL (analytical queries, joins, aggregations)</li>
+        <li>Scikit-learn</li>
+        <li>Streamlit</li>
+        <li>Git, GitHub</li>
+        <li>PyPI Packaging</li>
+      </ul>
 
-    <h3>Visualization & Reporting</h3>
-    <ul>
-      <li>Interactive Dashboards</li>
-      <li>Analytical Storytelling</li>
-      <li>Exploratory Data Analysis (EDA)</li>
-    </ul>
+      <h3>Visualization & Reporting</h3>
+      <ul>
+        <li>Interactive Dashboards</li>
+        <li>Analytical Storytelling</li>
+        <li>Exploratory Data Analysis (EDA)</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- SECTION 3 : EXPERIENCE -->
+  <!-- CARD 3: EXPERIENCE -->
   <div class="section">
-    <h2>EXPERIENCE</h2>
+    <div class="card">
+      <h2>EXPERIENCE</h2>
+      <div class="divider"></div>
 
-    <h3>UL India Private Limited — Gurgaon, India</h3>
-    <p class="meta">Field Operations Coordinator – Analytics & Insights<br>Sep 2024 – Mar 2025</p>
-    <ul>
-      <li>Designed and maintained structured data collection and validation workflows</li>
-      <li>Monitored and audited end-to-end operational data pipelines</li>
-      <li>Partnered with field and operations teams to standardize reporting logic</li>
-      <li>Diagnosed breakdowns in real-world data capture processes</li>
-      <li>Worked with messy, operationally constrained datasets</li>
-    </ul>
+      <h3>UL India Private Limited — Gurgaon, India</h3>
+      <p class="meta">Field Operations Coordinator – Analytics & Insights<br>Sep 2024 – Mar 2025</p>
+      <ul>
+        <li>Designed and maintained structured data collection and validation workflows, improving consistency and reliability across multi-source operational datasets</li>
+        <li>Monitored and audited end-to-end operational data pipelines, identifying data quality gaps that impacted downstream reporting and analysis</li>
+        <li>Partnered with field and operations teams to standardize reporting logic, reducing manual reconciliation and interpretation mismatches</li>
+        <li>Diagnosed breakdowns in real-world data capture processes and proposed workflow improvements to strengthen analytical usability</li>
+        <li>Built hands-on experience working with messy, incomplete, and operationally constrained datasets, bridging ground reality with analytics needs</li>
+      </ul>
 
-    <h3>DD Industries (Family-Owned Manufacturing Business)</h3>
-    <p class="meta">Operations & Analytics Support — Contract<br>Yamunanagar, Haryana — November 2025</p>
-    <ul>
-      <li>Provided analytical support during business wind-down</li>
-      <li>Coordinated production tracking and logistics</li>
-      <li>Analyzed sales, cost, and production data</li>
-      <li>Maintained reporting and documentation</li>
-      <li>Acted as liaison between operations and clients</li>
-    </ul>
+      <h3>DD Industries (Family-Owned Manufacturing Business)</h3>
+      <p class="meta">Operations & Analytics Support — Contract<br>Yamunanagar, Haryana — November 2025</p>
+      <ul>
+        <li>Provided short-term operational and analytical support for a heavy machinery manufacturing unit (~35 employees, ₹3–4 Cr annual turnover) during a business wind-down phase</li>
+        <li>Coordinated production tracking, logistics, and order status across labour teams, vendors, and clients</li>
+        <li>Analyzed basic sales, cost, and production data to support day-to-day operational decisions</li>
+        <li>Maintained simple reporting and documentation to improve visibility into inventory, expenses, and output</li>
+        <li>Acted as a liaison between on-ground operations and clients for delivery timelines and clarifications</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- SECTION 4 : PROJECTS -->
+  <!-- CARD 4: PROJECTS -->
   <div class="section">
-    <h2>PROJECTS</h2>
+    <div class="card">
+      <h2>PROJECTS</h2>
+      <div class="divider"></div>
 
-    <h3>Prepstack — Data Preparation & Analytics Framework</h3>
-    <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
-    <ul>
-      <li>Designed and built an end-to-end data preparation framework</li>
-      <li>Implemented modular EDA, cleaning, transformation, and validation layers</li>
-      <li>Built reproducible preprocessing pipelines</li>
-      <li>Implemented join diagnostics to detect row loss and explosion</li>
-      <li>Reduced risk of silent data bugs</li>
-      <li>Published as a reusable Python library on PyPI</li>
-    </ul>
-    <p class="meta">Link: PyPI | GitHub</p>
+      <h3>Prepstack — Data Preparation & Analytics Framework</h3>
+      <p class="meta">Python • Pandas • Data Validation • Feature Engineering • EDA • Modeling Pipelines</p>
+      <ul>
+        <li>Designed and built an end-to-end data preparation framework for structured analytics and ML workflows</li>
+        <li>Implemented modular layers for:</li>
+        <li>Data exploration (EDA, profiling, correlations, distributions)</li>
+        <li>Data cleaning (missing values, duplicates, outliers, type enforcement)</li>
+        <li>Feature transformation (column/row transforms, joins, diagnostics)</li>
+        <li>Visual validation (distribution checks, previews, correlations, time series)</li>
+        <li>Model preparation (splits, class balancing, feature selection, evaluation)</li>
+        <li>Built reproducible, inspectable preprocessing pipelines to prevent silent data bugs and leakage</li>
+        <li>Implemented join diagnostics to detect row loss, row explosion, and key mismatches</li>
+        <li>Reduced risk of silent data bugs by enforcing validation and join diagnostics</li>
+        <li>Improved reproducibility and inspectability of analytics workflows</li>
+        <li>Enabled consistent preprocessing across multiple datasets and use cases</li>
+        <li>Designed robust missing-data strategies for numeric, categorical, and mixed datasets</li>
+        <li>Packaged and published as a reusable Python library on PyPI, with versioned code and documentation</li>
+      </ul>
+      <p class="meta">Link: Pypi | GitHub</p>
 
-    <h3>Pricing Experimentation & Churn Impact Model</h3>
-    <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
-    <p>
-      A strategy-driven pricing experimentation system that quantifies churn pressure
-      introduced by pricing decisions without relying on black-box churn prediction.
-    </p>
-    <ul>
-      <li>Quantified incremental churn pressure</li>
-      <li>Modeled pricing effects across 15+ micro-segments</li>
-      <li>Translated coefficients into business-readable churn deltas</li>
-      <li>Implemented Run / Limit / Do Not Run decisions</li>
-    </ul>
-    <p class="meta">
-      Link: https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model
-    </p>
+      <h3>Pricing Experimentation & Churn Impact Model</h3>
+      <p class="meta">Product Analytics • Pricing Strategy • Experimentation • Explainable Modeling</p>
+      <p>
+        A strategy-driven pricing experimentation system that quantifies churn pressure
+        introduced by pricing decisions, enabling guardrail-aware growth without relying on
+        black-box churn prediction.
+      </p>
+      <p class="meta">
+        Link:
+        <a href="https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model" target="_blank">
+          https://github.com/ridhisha-tyagi/Pricing-Experimentation-and-churn-impact-model
+        </a>
+      </p>
 
-    <h3>SaaS Churn Intelligence System</h3>
-    <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
-    <ul>
-      <li>Analyzed churn behavior across 6+ customer dimensions</li>
-      <li>Built churn analytics pipeline (~5,000+ records)</li>
-      <li>Feature-level risk scoring</li>
-      <li>79% accuracy, 0.67 ROC-AUC</li>
-      <li>Reduced false positives by ~75%</li>
-      <li>Interactive Streamlit dashboard</li>
-    </ul>
-    <p class="meta">
-      Link: https://github.com/ridhisha-tyagi/saas-churn-intelligence
-    </p>
+      <h3>SaaS Churn Intelligence System</h3>
+      <p class="meta">Product and Behaviour Analysis • Churn Modeling • Streamlit Dashboard</p>
+      <ul>
+        <li>Analyzed churn behavior across 6+ customer dimensions (product usage, feature health, support interactions, satisfaction, errors, pricing signals) to identify churn drivers beyond surface-level metrics</li>
+        <li>Built a churn analytics pipeline covering ~5,000+ SaaS customer records with feature-level aggregation and behavioral segmentation</li>
+        <li>Designed a feature risk scoring framework to classify product features into retention anchors vs churn accelerators</li>
+        <li>Developed a precision-oriented churn risk model achieving ~79% accuracy and 0.67 ROC-AUC, optimized for actionable retention decisions</li>
+        <li>Tuned model threshold to reduce false positives by ~75%, prioritizing outreach efficiency over raw recall</li>
+        <li>Segmented customers into Low / Medium / High risk buckets, enabling targeted retention strategies instead of blanket interventions</li>
+        <li>Built an interactive Streamlit dashboard with 10+ drill-down views (system → segment → feature → customer behavior) to translate model outputs into product actions</li>
+        <li>Reduced analytical ambiguity by converting model coefficients into human-readable churn drivers, improving interpretability for non-technical stakeholders</li>
+      </ul>
+      <p class="meta">
+        Link:
+        <a href="https://github.com/ridhisha-tyagi/saas-churn-intelligence" target="_blank">
+          https://github.com/ridhisha-tyagi/saas-churn-intelligence
+        </a>
+      </p>
+    </div>
   </div>
 
-  <!-- SECTION 5 : EDUCATION & LANGUAGES -->
+  <!-- CARD 5: EDUCATION + LANGUAGES -->
   <div class="section">
-    <h2>EDUCATION</h2>
-    <p>
-      <strong>Graphic Era University, Dehradun</strong><br>
-      Bachelor of Technology — Electronics & Communication Engineering<br>
-      2024
-    </p>
+    <div class="card">
+      <h2>EDUCATION</h2>
+      <div class="divider"></div>
 
-    <h2>LANGUAGES</h2>
-    <ul>
-      <li>English (Professional)</li>
-      <li>Hindi (Native)</li>
-    </ul>
+      <p>
+        <strong>Graphic Era University, Dehradun</strong><br>
+        Bachelor of Technology — Electronics & Communication Engineering<br>
+        2024
+      </p>
+
+      <h2 style="margin-top:38px;">LANGUAGES</h2>
+      <div class="divider"></div>
+
+      <ul>
+        <li>English (Professional)</li>
+        <li>Hindi (Native)</li>
+      </ul>
+    </div>
   </div>
 
 </div>
 
-<!-- SCROLL BUTTONS -->
-<button class="scroll-arrow scroll-left"
-  onclick="document.querySelector('.horizontal-scroll').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })">
-  ←
+<!-- BIG translucent arrow buttons -->
+<button class="scroll-arrow scroll-left" onclick="document.getElementById('track').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })">
+  <span>←</span>
 </button>
 
-<button class="scroll-arrow scroll-right"
-  onclick="document.querySelector('.horizontal-scroll').scrollBy({ left: window.innerWidth, behavior: 'smooth' })">
-  →
+<button class="scroll-arrow scroll-right" onclick="document.getElementById('track').scrollBy({ left: window.innerWidth, behavior: 'smooth' })">
+  <span>→</span>
 </button>
 
 </body>
